@@ -649,4 +649,35 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 EXPOSE 80
 docker build -t web .
-docker run -d -p 8081:80 we
+docker run -d -p 8081:80 web
+package firstselenium.pro3;
+//
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class FirstSeleniumPro3 {
+    public static void main(String[] args) {
+        // Set the path to the EdgeDriver executable
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\BDALAB-33\\Desktop\\edgedriver_win64\\msedgedriver.exe");
+
+        // Initialize EdgeDriver
+        WebDriver driver = new EdgeDriver();
+
+        try {
+            // Open a website
+            driver.get("https://www.google.com");
+
+            // Print the title of the page
+            System.out.println("Title: " + driver.getTitle());
+
+            // Wait for 60 seconds
+            Thread.sleep(60000);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
+    }
+}
+
