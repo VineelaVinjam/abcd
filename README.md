@@ -554,3 +554,50 @@ public class TestRegistration {
         driver.quit();
     }
 }
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+public class FisrseleniumPro1 {
+ public static void main(String[] args) {
+ System.setProperty("webdriver.edge.driver", "D:\\DEVOPS 
+LAB\\WebDrivers\\msedgedriver.exe");
+ WebDriver driver = new EdgeDriver();
+ try {
+ driver.get("https://www.google.com");
+ System.out.println("Title: " + driver.getTitle());
+ Thread.sleep(60000);
+ } catch (Exception e) {
+ System.out.println("Error: " + e.getMessage());
+ } finally {
+ driver.quit();
+ }
+ }
+}
+<input id="a"> <input id="b">
+<button onclick="alert(+a.value + +b.value)">Add</button>
+<button onclick="alert(a.value - b.value)">Sub</button>
+<button onclick="alert(a.value * b.value)">Mul</button>
+<button onclick="alert(a.value / b.value)">Div</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Registration Form</title>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form>
+        <label>First Name:</label><br>
+        <input type="text" id="fname"><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email"><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="text" id="phone"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
