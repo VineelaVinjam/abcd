@@ -601,3 +601,52 @@ LAB\\WebDrivers\\msedgedriver.exe");
 
 </body>
 </html>
+///4
+ <!doctype html>
+<html>
+<body style="font-family:Arial">
+<h2>Registration</h2>
+Username: <input id="ru"><br><br>
+Password: <input id="rp" type="password"><br><br>
+<button onclick="reg()">Register</button>
+<h2>Login</h2>
+Username: <input id="lu"><br><br>
+Password: <input id="lp" type="password"><br><br>
+<button onclick="log()">Login</button>
+<h3 id="msg" style="color:blue"></h3>
+<script>
+function reg() {
+let u = document.getElementById("ru").value;
+let p = document.getElementById("rp").value;
+if(!u || !p){ document.getElementById("msg").innerHTML="Enter 
+username & password"; return; }
+if(localStorage.getItem(u)){
+document.getElementById("msg").innerHTML="User already 
+exists!";
+} else {
+localStorage.setItem(u, p);
+document.getElementById("msg").innerHTML="Registered 
+successfully!";
+}
+}
+function log() {
+let u = document.getElementById("lu").value;
+let p = document.getElementById("lp").value;
+let saved = localStorage.getItem(u);
+if(saved === p){
+document.getElementById("msg").innerHTML="Login 
+successful!";
+} else {
+document.getElementById("msg").innerHTML="Invalid 
+credentials!";
+}
+}
+</script>
+</body>
+</html>
+Dockerfile
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+docker build -t web .
+docker run -d -p 8081:80 we
